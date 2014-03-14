@@ -1,4 +1,4 @@
 dokuwiki-shorty-plugin
 ======================
 
-A dokuwiki plugin to generate shor urls from several services
+A dokuwiki plugin to automatically generate short urls from several services to th current page.
