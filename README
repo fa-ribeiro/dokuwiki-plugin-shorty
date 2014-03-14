@@ -1,6 +1,6 @@
 shorty Plugin for DokuWiki
 
-Generates a shot url to the current page
+Generates a short url to the current page using a url shortening service.
 
 All documentation for this plugin can be found at
 http://servidordebian.org
