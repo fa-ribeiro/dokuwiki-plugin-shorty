@@ -65,6 +65,9 @@ var $savedir = '';
             case 'tinyurl':
                 $shortURL = $this->getTinyurlURL($pageID);
                 break;
+            case 'yourls':
+                $shortURL = $this->getyourlsURL($pageID);
+                break;
             default:
                 $shortURL = false;
         }
@@ -100,6 +103,33 @@ var $savedir = '';
                 // saves the new short url to the database
                 $this->writeShortUrl($pageID, $url, $domain);
             }
+        }
+        return $url;
+    }
+
+    /**
+     * Generates a short url using the yourls API
+     *
+     * @return the shorturl or false in case of error
+     */
+    function getyourlsURL($pageID) {
+        // checks if the short url already exists in the database
+        $url = $this->readShortUrl($pageID, 'yourls');
+        if ($url == false ) {
+            // calls the service API to generate a short url
+            $longUrl = rawurlencode(wl($pageID,'',true));
+
+            $uri = $this->getConf('yourls_url');
+            $uri .= "/yourls-api.php?signature=" . $this->getConf('yourls_token');
+            $uri .= "&action=shorturl&format=simple";
+            $uri .= "&url=" . $longUrl;
+
+            $http = new DokuHTTPClient();
+            $url = $http->get($uri);
+            // saves the new short url to the database
+            $this->writeShortUrl($pageID, $url, 'yourls');
+
+            
         }
         return $url;
     }
