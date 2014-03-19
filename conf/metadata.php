@@ -9,10 +9,12 @@
  
 $meta['bitly_oauth_api']            = array('string');
 $meta['bitly_oauth_access_token']   = array('string');
-
+$meta['yourls_url']            		= array('string');
+$meta['yourls_token']   			= array('string');
 $meta['default_service']            = array('multichoice',
                                             '_choices' => array('bit.ly',
                                                                 'bitly.com',
                                                                 'j.mp',
-                                                                'tinyurl'
+                                                                'tinyurl',
+                                                                'yourls'
                                                                 ));
