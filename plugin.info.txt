@@ -4,4 +4,4 @@ email  pinguim.ribeiro@gmail.com
 date   2014-03-11
 name   shorty plugin
 desc   Generates a short url to the current page using a url shortening service.
-url    http://servidordebian.org
+url    https://www.dokuwiki.org/plugin:shorty
